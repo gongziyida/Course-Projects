@@ -1,7 +1,4 @@
-package cs445.a3;
-
 import java.util.List;
-import java.util.Arrays;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
