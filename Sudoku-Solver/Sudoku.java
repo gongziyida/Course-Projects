@@ -1,4 +1,7 @@
+package cs445.a3;
+
 import java.util.List;
+import java.util.Arrays;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
@@ -168,6 +171,9 @@ public class Sudoku {
         }
 
         System.out.println("\n\nThese should be rejected:");
+        System.out.println("\n1) A conflict in column");
+        System.out.println("\n2) A conflict in row");
+        System.out.println("\n3) A conflict in region");
         for (int[][] test : rejected) {
             if (reject(test)) {
                 System.out.println("\nRejected:");
@@ -183,27 +189,32 @@ public class Sudoku {
      * Tests the extend method using partial solutions
      */
     static void testExtend() {
-        String[] extendFileNames = {"./test/E1.su", "./test/E2.su"};
+        String[] extendFileNames = {"./test/E1.su", 
+                                    "./test/E2.su", 
+                                    "./test/E3.su"};
         String noExtendFileName = "./test/NE.su";
         int [][][] extendable = readBoard(extendFileNames);
         int [][] inExtendable = readBoard(noExtendFileName);
 
         System.out.println("\n\nThis can NOT be extended:");
-        System.out.println("\nExtended");
+        System.out.println("\nExtend");
         printBoard(inExtendable);
         System.out.println("\nto");
         int [][] after = extend(inExtendable);
         if (after != null) printBoard(after);
-        else System.out.println("\nThe original one");
+        else System.out.println("\nCannot be extended!");
 
         System.out.println("\n\nThese can be extended:");
+        System.out.println("\n1) Extend somewhere in the middle");
+        System.out.println("\n2) Extend in the beginning");
+        System.out.println("\n3) Extend in the end");
         for (int[][] test : extendable) {
-            System.out.println("\nExtended");
+            System.out.println("\nExtend");
             printBoard(test);
             System.out.println("\nto");
             after = extend(test);
             if (after != null) printBoard(after);
-            else System.out.println("\nThe original one");
+            else System.out.println("\nCannot be extended!");
         }
     }
 
@@ -226,20 +237,22 @@ public class Sudoku {
         inNextable[RECORDER_ROW][RECENT_COL] = 6;
 
         System.out.println("\n\nThis can NOT be nexted:");
-        System.out.println("\nNexted");
+        System.out.println("\n(Last extend: (2nd,7th))");
+        System.out.println("\nNext");
         printBoard(inNextable);
         System.out.println("\nto");
         int [][] after = next(inNextable);
         if (after != null) printBoard(after);
-        else System.out.println("\nThe original one");
+        else System.out.println("\nCannot be nexted!");
 
         System.out.println("\n\nThis can be nexted:");
-        System.out.println("\nNexted");
+        System.out.println("\n(Last extend: (3nd,9th))");
+        System.out.println("\nNext");
         printBoard(nextable);
         System.out.println("\nto");
         after = next(nextable);
         if (after != null) printBoard(after);
-        else System.out.println("\nThe original one");
+        else System.out.println("\nCannot be nexted!");
     }
     /**
      * print the board to the console
@@ -341,15 +354,18 @@ public class Sudoku {
             testExtend();
             testNext();
         } else {
-            // long end, elapse;
-            // long start = System.nanoTime();
+            //long end, elapse;
+            //long start = System.nanoTime();
             int[][] board = readBoard(args[0]);
             printBoard(board);
             System.out.println("\nSolution:\n");
-            printBoard(solve(board));
-            // end = System.nanoTime();
-            // elapse = end - start;
-            // System.out.println((double)elapse / 1000000000.0);
+            int[][] solution = solve(board);
+            if (solution != null)
+                printBoard(solution);
+            else System.out.println("No Solution");
+            //end = System.nanoTime();
+            //elapse = end - start;
+            //System.out.println((double)elapse / 1000000000.0);
         }
     }
 }
