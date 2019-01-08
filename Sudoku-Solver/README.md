@@ -13,4 +13,4 @@ Difficulty Level | Elapsed Time 1 | Elapsed Time 2 | Elapsed Time 3
 1 | 0.05090s | 0.04695s | 0.04733s 
 
 # Acknowledgement 
-As originally a course assignment, the skeleton of the program is provided by Dr. William C. Garrison III, my instructor of Data Structure.
+The skeleton of the program was provided by Dr. William C. Garrison III, my instructor of Data Structure.
