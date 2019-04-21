@@ -1,2 +1,2 @@
 # Numerical Linear Algebra
-Basic stable, efficient, and accurate algorithms for solving factorization and eigenvalue problems in linear algebra.
+Basic salgorithms for solving factorization and eigenvalue problems in linear algebra. All algorithms are stable, accurate, and well-conditioned most of the time.
