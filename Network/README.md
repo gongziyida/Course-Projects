@@ -4,4 +4,4 @@ This is an implementation of weighted, undirected graphs. The program is able to
   * find the shortest weighted path between two given vertices;
   * find any pair of vertices that, if removed, will disconnect the graph;
   * find articulation points;
-  * MISC functionalities specific to this project requirement.
+  * perform some MISC functionalities specific to this project requirement.
