@@ -6,4 +6,4 @@ This project actually contains two parts:
 All in C99.
 
 # Acknowledgement
-Parts of the basic structure of the files are provided or written by my instructor, Jarrett Billingsley.
+Parts of the basic structure of the files are provided or written by my instructor, Dr. Jarrett Billingsley.
